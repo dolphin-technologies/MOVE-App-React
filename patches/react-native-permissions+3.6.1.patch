@@ -1,0 +1,31 @@
+diff --git a/node_modules/react-native-permissions/ios/LocationAlways/RNPermissionHandlerLocationAlways.m b/node_modules/react-native-permissions/ios/LocationAlways/RNPermissionHandlerLocationAlways.m
+index 29c9075..c6f1acd 100644
+--- a/node_modules/react-native-permissions/ios/LocationAlways/RNPermissionHandlerLocationAlways.m
++++ b/node_modules/react-native-permissions/ios/LocationAlways/RNPermissionHandlerLocationAlways.m
+@@ -36,6 +36,7 @@ - (void)checkWithResolver:(void (^ _Nonnull)(RNPermissionStatus))resolve
+     case kCLAuthorizationStatusRestricted:
+       return resolve(RNPermissionStatusRestricted);
+     case kCLAuthorizationStatusAuthorizedWhenInUse:
++      return resolve(RNPermissionStatusLimited);
+     case kCLAuthorizationStatusDenied:
+       return resolve(RNPermissionStatusDenied);
+     case kCLAuthorizationStatusAuthorizedAlways:
+@@ -48,7 +49,8 @@ - (void)requestWithResolver:(void (^ _Nonnull)(RNPermissionStatus))resolve
+   if (![CLLocationManager locationServicesEnabled]) {
+     return resolve(RNPermissionStatusNotAvailable);
+   }
+-  if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusNotDetermined) {
++  if ([CLLocationManager authorizationStatus] != kCLAuthorizationStatusNotDetermined
++  && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
+     return [self checkWithResolver:resolve rejecter:reject];
+   }
+ 
+@@ -61,7 +63,7 @@ - (void)requestWithResolver:(void (^ _Nonnull)(RNPermissionStatus))resolve
+ }
+ 
+ - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+-  if (status != kCLAuthorizationStatusNotDetermined) {
++  if (status == kCLAuthorizationStatusAuthorizedAlways) {
+     [_locationManager setDelegate:nil];
+     [self checkWithResolver:_resolve rejecter:_reject];
+   }

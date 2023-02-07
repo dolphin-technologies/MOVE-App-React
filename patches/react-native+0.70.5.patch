@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native/scripts/react-native-xcode.sh b/node_modules/react-native/scripts/react-native-xcode.sh
+index 7fb2a3d..f618457 100755
+--- a/node_modules/react-native/scripts/react-native-xcode.sh
++++ b/node_modules/react-native/scripts/react-native-xcode.sh
+@@ -153,7 +153,7 @@ fi
+   $EXTRA_ARGS \
+   $EXTRA_PACKAGER_ARGS
+ 
+-if [[ $USE_HERMES != true ]]; then
++if [[ $USE_HERMES == false ]]; then
+   cp "$BUNDLE_FILE" "$DEST/"
+   BUNDLE_FILE="$DEST/main.jsbundle"
+ else

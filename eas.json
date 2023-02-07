@@ -1,0 +1,90 @@
+{
+	"build": {
+		"global": {
+			"env": { "NPM_TOKEN": "your npm token for private packages" }
+		},
+		"development": {
+			"extends": "global",
+			"ios": {
+				"developmentClient": true,
+				"credentialsSource": "local",
+				"releaseChannel": "development"
+			},
+			"android": {
+				"developmentClient": true,
+				"credentialsSource": "local",
+				"releaseChannel": "development",
+				"buildType": "apk"
+			}
+		},
+		"simulator": {
+			"extends": "global",
+			"ios": {
+				"developmentClient": true,
+				"simulator": true
+			},
+			"env": {
+				"VERSION": "test",
+				"BUILD_NUMBER": "99"
+			}
+		},
+		"master": {
+			"extends": "global",
+			"ios": {
+				"distribution": "internal",
+				"credentialsSource": "local",
+				"releaseChannel": "master"
+			},
+			"android": {
+				"credentialsSource": "local",
+				"releaseChannel": "master"
+			},
+			"env": {
+				"VERSION": "test",
+				"BUILD_NUMBER": "99"
+			}
+		},
+
+		"production": {
+			"ios": {
+				"credentialsSource": "local",
+				"releaseChannel": "production"
+			},
+			"android": {
+				"credentialsSource": "local",
+				"releaseChannel": "production"
+			},
+			"env": {
+				"VERSION": "production",
+				"BUILD_NUMBER": "99"
+			}
+		}
+	},
+	"submit": {
+		"master": {
+			"ios": {
+				"appleId": "xxxxxxxxxxxxxxxxx",
+				"ascAppId": "xxxxxxxxxxxxxxxxx",
+				"appleTeamId": "xxxxxxxxxxxxxxxxx"
+			},
+			"android": {
+				"serviceAccountKeyPath": "xxxxxxxxxxxxxxxxx",
+				"track": "internal"
+			}
+		},
+		"production": {
+			"ios": {
+				"appleId": "xxxxxxxxxxxxxxxxx",
+				"ascAppId": "xxxxxxxxxxxxxxxxx",
+				"appleTeamId": "xxxxxxxxxxxxxxxxx"
+			},
+			"android": {
+				"serviceAccountKeyPath": "xxxxxxxxxxxxxxxxx",
+				"track": "internal"
+			}
+		}
+	},
+	"cli": {
+		"version": ">= 0.52.0"
+	}
+}

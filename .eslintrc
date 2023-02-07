@@ -1,0 +1,73 @@
+{
+	"env": {
+		"node": true,
+		"es2021": true
+	},
+	"extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true,
+			"experimentalObjectRestSpread": true,
+			"impliedStrict": true,
+			"classes": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "react-native", "@typescript-eslint", "react-hooks", "import", "prettier"],
+	"rules": {
+		"no-console": "warn",
+		"react/react-in-jsx-scope": "off",
+		"react/display-name": "off",
+		"linebreak-style": ["error", "unix"],
+		"semi": ["error", "always"],
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"import/order": [
+			"error",
+			{
+				"pathGroups": [
+					{ "pattern": "@config", "group": "internal" },
+					{ "pattern": "@config/**", "group": "internal" },
+					{ "pattern": "@screens", "group": "internal" },
+					{ "pattern": "@screens/**", "group": "internal" },
+					{ "pattern": "@components", "group": "internal" },
+					{ "pattern": "@components/**", "group": "internal" },
+					{ "pattern": "@store", "group": "internal" },
+					{ "pattern": "@store/**", "group": "internal" },
+					{ "pattern": "@styles", "group": "internal" },
+					{ "pattern": "@styles/**", "group": "internal" },
+					{ "pattern": "@hooks", "group": "internal" },
+					{ "pattern": "@hooks/**", "group": "internal" },
+					{ "pattern": "@utils", "group": "internal" },
+					{ "pattern": "@utils/**", "group": "internal" },
+					{ "pattern": "@services", "group": "internal" },
+					{ "pattern": "@services/**", "group": "internal" },
+					{ "pattern": "@navigation", "group": "internal" },
+					{ "pattern": "@navigation/**", "group": "internal" },
+					{ "pattern": "@assets", "group": "internal" },
+					{ "pattern": "@assets/**", "group": "internal" },
+					{ "pattern": "@locales", "group": "internal" },
+					{ "pattern": "@locales/**", "group": "internal" }
+				],
+				"groups": ["builtin", "external", "internal", ["parent", "index", "sibling"], "object"],
+				"pathGroupsExcludedImportTypes": ["builtin"],
+				"newlines-between": "always"
+			}
+		],
+		"indent": "off",
+		"curly": "warn",
+		"prettier/prettier": [
+			"error",
+			{
+				"singleQuote": true,
+				"printWidth": 200,
+				"useTabs": true
+			}
+		]
+	},
+	"globals": {
+		"__DEV__": true
+	}
+}

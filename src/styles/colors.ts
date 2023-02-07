@@ -1,0 +1,13 @@
+export const DARK_BLUE = '#061230';
+export const BLUE = '#1f2a45';
+export const DARK_GREY = '#595959';
+export const GREY = '#6d7486';
+export const LIGHT_GREY = '#c5c8cf';
+export const PALE_GREY = '#f2f3f4';
+export const WHITE = '#ffffff';
+export const GREEN = '#448d71';
+export const GREEN_LIGHT = '#a3dc70';
+export const RED = '#FF0000';
+export const ORANGE = '#f28f40';
+export const BUTTON_GRADIENT = ['#a5dd70', '#438d72'];
+export const BUTTON_GRADIENT_ACTIVE = ['#a5dd70', '#a5dd70'];
