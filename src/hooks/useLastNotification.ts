@@ -17,12 +17,12 @@ const useLastNotification = (navigationReady: boolean) => {
 			if (lastNotification.notification.request.trigger.type === 'push') {
 				if ('remoteMessage' in lastNotification.notification.request.trigger) {
 					// android
-					type = lastNotification.notification.request.trigger.remoteMessage.data.type as LinkingType;
-					value = lastNotification.notification.request.trigger.remoteMessage.data.value;
+					type = lastNotification.notification.request.trigger.remoteMessage?.data.type as LinkingType;
+					value = lastNotification.notification.request.trigger.remoteMessage?.data.value;
 				} else if ('payload' in lastNotification.notification.request.trigger) {
 					// ios
-					type = lastNotification.notification.request.trigger.payload.type as LinkingType;
-					value = lastNotification.notification.request.trigger.payload.value;
+					type = lastNotification.notification.request.trigger.payload?.type as LinkingType;
+					value = lastNotification.notification.request.trigger.payload?.value;
 				}
 			}
 

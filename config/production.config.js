@@ -54,7 +54,6 @@ const config = {
 	},
 	plugins: [
 		'./plugins/move/index.js',
-		'expo-community-flipper',
 		'sentry-expo',
 		'expo-system-ui',
 		[
@@ -64,7 +63,7 @@ const config = {
 					minSdkVersion: 26,
 					kotlinVersion: '1.7.10',
 					compileSdkVersion: 33,
-					targetSdkVersion: 31,
+					targetSdkVersion: 33,
 				},
 			},
 		],

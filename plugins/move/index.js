@@ -92,7 +92,7 @@ function withMoveProjectBuildGradle(config) {
 		const { contents } = modResults;
 		const lines = contents.split('\n');
 
-		const mavenIndex = lines.findIndex((line) => /mavenLocal\(\)/.test(line));
+		const mavenIndex = lines.lastIndexOf('        mavenCentral()');
 
 		modResults.contents = [
 			...lines.slice(0, mavenIndex + 1),
